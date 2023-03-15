@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray">
+
+    <include
+        layout="@layout/layout_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+            <Button
+                android:id="@+id/buttonStudent"
+                style="@style/MainButton"
+                android:drawableLeft="@drawable/icon_user"
+                android:text="@string/btn_text_etudiant" />
+
+            <Button
+                android:id="@+id/buttonStudent2"
+                style="@style/MainButton"
+                android:drawableLeft="@drawable/icon_user"
+                android:text="@string/btn_text_etudiant2" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
