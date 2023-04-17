@@ -19,5 +19,14 @@ class MainActivity : AppCompatActivity() {
             var intent_inscription = Intent(application, InscriptionActivity::class.java);
             startActivity(intent_inscription)
         })
+
+        // ┌──────────────────────────────────────────┐
+        // │          Button - QR Code                │
+        // └──────────────────────────────────────────┘
+        var btn_qr_code: Button = findViewById<Button>(R.id.btn_qr_code)
+        btn_qr_code.setOnClickListener(View.OnClickListener() {
+            var intent_qc_code = Intent(application, QrScanActivity::class.java)
+            startActivity(intent_qc_code)
+        })
     }
 }
