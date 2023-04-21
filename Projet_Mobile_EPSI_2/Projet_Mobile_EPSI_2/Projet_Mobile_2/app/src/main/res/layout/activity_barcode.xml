@@ -7,21 +7,37 @@
     <Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/purple_700">
+        android:background="@color/purple_700"
+        android:orientation="horizontal"
+        >
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/title_creation_account"
-            android:textSize="25dp"
-            android:gravity="center"
-            android:textColor="@color/white"/>
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:src="@drawable/epsi_logo"
+            />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_gravity="end"
+            android:src="@drawable/icon_user"
+            />
 
     </Toolbar>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/img_barcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            />
+
     </ScrollView>
 
 </LinearLayout>

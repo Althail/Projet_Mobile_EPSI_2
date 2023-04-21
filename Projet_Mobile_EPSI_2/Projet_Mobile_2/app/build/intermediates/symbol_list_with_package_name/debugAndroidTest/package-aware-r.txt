@@ -1,0 +1,3 @@
+com.example.projet_mobile_2.test
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme

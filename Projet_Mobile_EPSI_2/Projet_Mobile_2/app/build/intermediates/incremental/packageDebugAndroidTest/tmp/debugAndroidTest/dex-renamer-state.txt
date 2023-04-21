@@ -1,0 +1,13 @@
+#Mon Apr 17 23:21:22 CEST 2023
+path.3=8/classes.dex
+path.2=14/classes.dex
+path.1=0/classes.dex
+path.0=classes.dex
+base.3=/home/sangmin/AndroidStudioProjects/Projet_Mobile_EPSI_2/Projet_Mobile_EPSI_2/Projet_Mobile_2/app/build/intermediates/dex/debugAndroidTest/mergeProjectDexDebugAndroidTest/8/classes.dex
+base.2=/home/sangmin/AndroidStudioProjects/Projet_Mobile_EPSI_2/Projet_Mobile_EPSI_2/Projet_Mobile_2/app/build/intermediates/dex/debugAndroidTest/mergeProjectDexDebugAndroidTest/14/classes.dex
+base.1=/home/sangmin/AndroidStudioProjects/Projet_Mobile_EPSI_2/Projet_Mobile_EPSI_2/Projet_Mobile_2/app/build/intermediates/dex/debugAndroidTest/mergeProjectDexDebugAndroidTest/0/classes.dex
+base.0=/home/sangmin/AndroidStudioProjects/Projet_Mobile_EPSI_2/Projet_Mobile_EPSI_2/Projet_Mobile_2/app/build/intermediates/dex/debugAndroidTest/mergeExtDexDebugAndroidTest/classes.dex
+renamed.3=classes4.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
