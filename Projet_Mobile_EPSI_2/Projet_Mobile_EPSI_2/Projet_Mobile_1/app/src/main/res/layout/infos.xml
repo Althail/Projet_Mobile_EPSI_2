@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="235dp"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:id="@+id/buttonInfo"
+            style="@style/MainButton"
+            android:drawableLeft="@drawable/icon_user"
+            android:text="Alexandre REDON" />
+
+        <Button
+            android:id="@+id/buttonProducts"
+            style="@style/MainButton"
+            android:drawableLeft="@drawable/icon_user"
+            android:text="Anthony DURET" />
+
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/dark_blue"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="Infos"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/imageViewBack"
+            android:layout_width="39dp"
+            android:layout_height="32dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="20dp" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
