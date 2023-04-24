@@ -44,6 +44,7 @@
                     android:text="Nom"
                     android:textSize="18dp" />
                 <EditText
+                    android:id="@+id/et_first_name"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:hint="Insérez votre nom" />
@@ -62,6 +63,7 @@
                     android:textSize="18dp" />
 
                 <EditText
+                    android:id="@+id/et_last_name"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:hint="Insérez votre prénom" />
@@ -80,6 +82,7 @@
                     android:textSize="18dp" />
 
                 <EditText
+                    android:id="@+id/et_e_mail"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:hint="Insérez votre e-mail" />
@@ -98,6 +101,7 @@
                     android:textSize="18dp" />
 
                 <EditText
+                    android:id="@+id/et_address"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:hint="Insérez votre adresse" />
@@ -116,6 +120,7 @@
                     android:textSize="18dp" />
 
                 <EditText
+                    android:id="@+id/et_zip_code"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:hint="Insérez votre code postal" />
@@ -134,6 +139,7 @@
                     android:textSize="18dp" />
 
                 <EditText
+                    android:id="@+id/et_city"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:hint="Insérez votre ville" />
@@ -152,15 +158,17 @@
                     android:textSize="14dp" />
 
                 <EditText
+                    android:id="@+id/et_cardRef"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:hint="Insérez votre carte de fidelité" />
             </LinearLayout>
 
             <Button
+                android:id="@+id/btn_register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Créer"
+                android:text="@string/btn_inscription"
                 android:gravity="center"></Button>
         </LinearLayout>
     </ScrollView>
