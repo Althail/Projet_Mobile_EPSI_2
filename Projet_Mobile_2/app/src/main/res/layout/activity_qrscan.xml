@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <com.budiyev.android.codescanner.CodeScannerView
         android:id="@+id/scanner_view"
@@ -18,12 +19,28 @@
         android:textColor="@color/white"
         android:textSize="20sp"/>
 
-    <Button
-        android:id="@+id/btn_scan_reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/scanned_text"
-        android:layout_centerHorizontal="true"
-        android:text="RESET"/>
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/scanned_text"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <Button
+            android:id="@+id/btn_send_scan_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/scanned_text"
+            android:text="ENVOYER"
+            android:layout_marginRight="15dp"
+            />
+
+        <Button
+            android:id="@+id/btn_scan_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/scanned_text"
+            android:text="REINITIALISER" />
+    </LinearLayout>
 </RelativeLayout>

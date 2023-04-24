@@ -17,10 +17,12 @@ import com.budiyev.android.codescanner.AutoFocusMode
 import com.budiyev.android.codescanner.CodeScannerView
 import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
+import org.json.JSONObject
 
 class QrScanActivity: AppCompatActivity() {
 
     lateinit var codeScanner : CodeScanner
+    var scannedData: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +42,32 @@ class QrScanActivity: AppCompatActivity() {
             if(::codeScanner.isInitialized){
                 codeScanner.startPreview()
             }
+        }
+
+        // Send Button
+        val btn_send:Button = findViewById(R.id.btn_send_scan_data)
+
+        btn_send.setOnClickListener{
+            val jsonObject = JSONObject(scannedData)
+
+            val firstName = jsonObject.getString("firstName")
+            val lastName = jsonObject.getString("lastName")
+            val email = jsonObject.getString("email")
+            val address = jsonObject.getString("address")
+            val zipcode = jsonObject.getString("zipcode")
+            val city = jsonObject.getString("city")
+            val cardRef = jsonObject.getString("cardRef")
+
+            val newIntent= Intent(application, InscriptionActivity::class.java);
+            newIntent.putExtra("firstName",firstName)
+            newIntent.putExtra("lastName",lastName)
+            newIntent.putExtra("email",email)
+            newIntent.putExtra("address",address)
+            newIntent.putExtra("zipcode",zipcode)
+            newIntent.putExtra("city",city)
+            newIntent.putExtra("cardRef",cardRef)
+
+            startActivity(newIntent)
         }
     }
 
@@ -63,6 +91,7 @@ class QrScanActivity: AppCompatActivity() {
                 runOnUiThread {
 
                     codeText.text = it.text
+                    scannedData = it.text
                 }
             }
 
