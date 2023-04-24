@@ -1,4 +1,0 @@
-#Mon Apr 17 21:20:41 CEST 2023
-base.0=/home/sangmin/AndroidStudioProjects/Projet_Mobile_EPSI_2/Projet_Mobile_EPSI_2/Projet_Mobile_2/app/build/intermediates/dex/release/mergeDexRelease/classes.dex
-renamed.0=classes.dex
-path.0=classes.dex

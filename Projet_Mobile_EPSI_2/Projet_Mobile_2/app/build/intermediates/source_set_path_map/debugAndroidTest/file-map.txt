@@ -1,7 +1,0 @@
-com.example.projet_mobile_2.test.app-annotation-experimental-1.3.0-0 /home/sangmin/.gradle/caches/transforms-3/b5bccded21785d472e5afdf693672526/transformed/annotation-experimental-1.3.0/res
-com.example.projet_mobile_2.test.app-core-1.5.0-1 /home/sangmin/.gradle/caches/transforms-3/ed03b09beab910ece44f46cf5b4eee4f/transformed/core-1.5.0/res
-com.example.projet_mobile_2.test.app-androidTest-2 /home/sangmin/AndroidStudioProjects/Projet_Mobile_EPSI_2/Projet_Mobile_EPSI_2/Projet_Mobile_2/app/build/generated/res/resValues/androidTest/debug
-com.example.projet_mobile_2.test.app-androidTest-3 /home/sangmin/AndroidStudioProjects/Projet_Mobile_EPSI_2/Projet_Mobile_EPSI_2/Projet_Mobile_2/app/build/generated/res/rs/androidTest/debug
-com.example.projet_mobile_2.test.app-mergeDebugAndroidTestResources-4 /home/sangmin/AndroidStudioProjects/Projet_Mobile_EPSI_2/Projet_Mobile_EPSI_2/Projet_Mobile_2/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
-com.example.projet_mobile_2.test.app-mergeDebugAndroidTestResources-5 /home/sangmin/AndroidStudioProjects/Projet_Mobile_EPSI_2/Projet_Mobile_EPSI_2/Projet_Mobile_2/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
-com.example.projet_mobile_2.test.app-merged_res-6 /home/sangmin/AndroidStudioProjects/Projet_Mobile_EPSI_2/Projet_Mobile_EPSI_2/Projet_Mobile_2/app/build/intermediates/merged_res/debugAndroidTest
