@@ -28,5 +28,14 @@ class MainActivity : AppCompatActivity() {
             var intent_qc_code = Intent(application, QrScanActivity::class.java)
             startActivity(intent_qc_code)
         })
+
+        // ┌──────────────────────────────────────────┐
+        // │          Button - Compte                 │
+        // └──────────────────────────────────────────┘
+        var btn_compte: Button = findViewById<Button>(R.id.btn_compte)
+        btn_compte.setOnClickListener(View.OnClickListener (){
+            var intent_compte = Intent(application, BarcodeActivity::class.java);
+            startActivity(intent_compte)
+        })
     }
 }

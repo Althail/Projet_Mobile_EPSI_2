@@ -6,4 +6,5 @@
     <!-- Button -->
     <string name="btn_qr_code">QR CODE</string>
     <string name="btn_inscription">Inscription</string>
+    <string name="btn_compte">Compte</string>
 </resources>

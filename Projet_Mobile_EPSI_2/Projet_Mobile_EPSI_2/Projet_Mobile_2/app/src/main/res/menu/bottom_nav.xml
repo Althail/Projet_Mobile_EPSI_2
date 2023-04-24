@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_accueil"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Carte" />
+
+    <item
+        android:id="@+id/action_recherche"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="Offres" />
+
+    <item
+        android:id="@+id/action_profil"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="Magasins" />
+
+</menu>

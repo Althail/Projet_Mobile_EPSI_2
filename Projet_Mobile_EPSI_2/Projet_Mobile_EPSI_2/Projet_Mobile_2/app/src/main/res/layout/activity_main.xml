@@ -41,6 +41,12 @@
             android:layout_height="wrap_content"
             android:text="@string/btn_inscription"></Button>
 
+        <Button
+            android:id="@+id/btn_compte"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_compte"></Button>
+
     </LinearLayout>
 
 </LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="action_accueil" type="id" />
+    <item name="action_recherche" type="id" />
+    <item name="action_profil" type="id" />
+</resources>

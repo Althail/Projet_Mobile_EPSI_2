@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ba339776-1169-439d-9232-8bec3a25c2cb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/Projet_Mobile_2/.idea/kotlinc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/Projet_Mobile_2/app/src/main/java/com/example/projet_mobile_2/Carte.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/Projet_Mobile_2/app/src/main/java/com/example/projet_mobile_2/Magasins.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/Projet_Mobile_2/app/src/main/java/com/example/projet_mobile_2/Offres.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/Projet_Mobile_2/app/src/main/res/drawable/ic_baseline_home_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/Projet_Mobile_2/app/src/main/res/drawable/ic_baseline_person_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/Projet_Mobile_2/app/src/main/res/drawable/ic_baseline_settings_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/Projet_Mobile_2/app/src/main/res/layout/fragment_carte.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/Projet_Mobile_2/app/src/main/res/layout/fragment_magasins.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/Projet_Mobile_2/app/src/main/res/layout/fragment_offres.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/Projet_Mobile_2/app/src/main/res/menu/bottom_nav.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.idea/Projet_Mobile_EPSI_2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/deploymentTargetDropDown.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/.idea/Projet_Mobile_EPSI_2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/Projet_Mobile_2/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/Projet_Mobile_2/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/Projet_Mobile_2/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/Projet_Mobile_2/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/Projet_Mobile_2/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/Projet_Mobile_2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/Projet_Mobile_2/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/Projet_Mobile_2/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/Projet_Mobile_2/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/Projet_Mobile_2/app/src/main/java/com/example/projet_mobile_2/BarcodeActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/Projet_Mobile_2/app/src/main/java/com/example/projet_mobile_2/BarcodeActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/Projet_Mobile_2/app/src/main/res/layout/activity_barcode.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Projet_Mobile_EPSI_2/Projet_Mobile_2/app/src/main/res/layout/activity_barcode.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="2OnCcz1qir4RycRfv0KPQYjS5pd" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "android.gradle.sync.needed": "true",
+    "cidr.known.project.marker": "true",
+    "last_opened_file_path": "C:/xampp/htdocs/Projet_Mobile_EPSI_2/Projet_Mobile_EPSI_2/Projet_Mobile_1/app"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ba339776-1169-439d-9232-8bec3a25c2cb" name="Changes" comment="" />
+      <created>1682187043176</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1682187043176</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
