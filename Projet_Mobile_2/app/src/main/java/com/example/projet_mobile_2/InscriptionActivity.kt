@@ -74,6 +74,8 @@ class InscriptionActivity: AppCompatActivity() {
             database.child(input_firstName).setValue(User).addOnSuccessListener {
                 Toast.makeText(this,"Success", Toast.LENGTH_SHORT).show()
             }.addOnFailureListener{Toast.makeText(this,"Failed", Toast.LENGTH_SHORT).show()}
+
+
         })
     }
 }
