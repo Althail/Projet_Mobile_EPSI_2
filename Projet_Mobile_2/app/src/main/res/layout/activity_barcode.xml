@@ -17,23 +17,21 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:src="@drawable/epsi_logo"
-            />
+            ></ImageView>
 
         <ImageView
             android:layout_width="50dp"
             android:layout_height="30dp"
             android:layout_gravity="end"
             android:src="@drawable/icon_user"
-            />
+            ></ImageView>
 
     </Toolbar>
-
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
-
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -41,4 +39,5 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_nav" />
+
 </LinearLayout>
