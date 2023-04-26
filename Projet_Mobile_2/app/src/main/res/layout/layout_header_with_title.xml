@@ -11,21 +11,21 @@
         android:background="@color/purple_700"
         android:orientation="horizontal"
         >
-
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:src="@drawable/epsi_logo"
-            ></ImageView>
-
-        <ImageView
-            android:id="@+id/btn_account"
+            android:id="@+id/imageViewBackButton"
             android:layout_width="50dp"
             android:layout_height="30dp"
-            android:layout_gravity="end"
-            android:src="@drawable/icon_user"
+            android:layout_gravity="start"
+            android:src="@drawable/back"
             ></ImageView>
-
+        <TextView
+            android:id="@+id/textViewHeaderTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="TITLE"
+            android:textColor="@color/white"
+            android:textSize="35dp"
+            />
     </Toolbar>
 </LinearLayout>

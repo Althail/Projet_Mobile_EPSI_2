@@ -32,7 +32,7 @@
             android:id="@+id/btn_qr_code"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="15dp"
             android:text="@string/btn_qr_code"></Button>
 
         <Button
@@ -41,11 +41,6 @@
             android:layout_height="wrap_content"
             android:text="@string/btn_inscription"></Button>
 
-        <Button
-            android:id="@+id/btn_compte"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_compte"></Button>
 
     </LinearLayout>
 
