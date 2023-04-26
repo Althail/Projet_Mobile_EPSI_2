@@ -3,4 +3,5 @@
     <item name="action_accueil" type="id" />
     <item name="action_recherche" type="id" />
     <item name="action_profil" type="id" />
+    <item name="fragment_container" type="id" />
 </resources>
