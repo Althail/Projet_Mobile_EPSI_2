@@ -1,5 +1,6 @@
 package com.example.projet_mobile_2
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.text.TextUtils
@@ -75,7 +76,8 @@ class InscriptionActivity: AppCompatActivity() {
                 Toast.makeText(this,"Success", Toast.LENGTH_SHORT).show()
             }.addOnFailureListener{Toast.makeText(this,"Failed", Toast.LENGTH_SHORT).show()}
 
-
+            var intent_barcode = Intent(application, BarcodeActivity::class.java);
+            startActivity(intent_barcode)
         })
     }
 }
