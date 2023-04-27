@@ -2,17 +2,17 @@
 
     <item
         android:id="@+id/action_accueil"
-        android:icon="@drawable/ic_baseline_home_24"
+        android:icon="@drawable/ic_barcode_24"
         android:title="Carte" />
 
     <item
         android:id="@+id/action_recherche"
-        android:icon="@drawable/ic_baseline_person_24"
+        android:icon="@drawable/ic_receipt_long_24"
         android:title="Offres" />
 
     <item
         android:id="@+id/action_profil"
-        android:icon="@drawable/ic_baseline_settings_24"
+        android:icon="@drawable/ic_travel_explore_24"
         android:title="Magasins" />
 
 </menu>

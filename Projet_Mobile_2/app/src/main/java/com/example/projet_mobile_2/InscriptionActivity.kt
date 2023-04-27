@@ -77,6 +77,7 @@ class InscriptionActivity: AppCompatActivity() {
             }.addOnFailureListener{Toast.makeText(this,"Failed", Toast.LENGTH_SHORT).show()}
 
             var intent_barcode = Intent(application, BarcodeActivity::class.java);
+            intent_barcode.putExtra("name",input_firstName + " " + input_lastName)
             startActivity(intent_barcode)
         })
     }
