@@ -2,10 +2,12 @@
     <string name="app_name">EPSI Mobile 2</string>
     <!-- Title -->
     <string name="title_creation_account">Création de compte</string>
+    <string name="title_account">Compte</string>
 
     <!-- Button -->
     <string name="btn_qr_code">QR CODE</string>
     <string name="btn_inscription">Inscription</string>
+    <string name="btn_compte_modify">J\'enregistre les modification</string>
     <string name="btn_compte">Compte</string>
 
     <string name="db_url">"https://mobile-database-126d6-default-rtdb.asia-southeast1.firebasedatabase.app"</string>
