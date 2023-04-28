@@ -1,7 +1,9 @@
 package com.example.projet_mobile_2
 
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
+import com.squareup.picasso.Picasso
 
 class MagasinDetailActivity: BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,10 +34,12 @@ class MagasinDetailActivity: BaseActivity() {
         val textViewAddress:TextView = findViewById<TextView>(R.id.text_magasin_address)
         val textViewCodePostalCity:TextView = findViewById<TextView>(R.id.text_magasin_code_postal_city)
         val textViewDescription:TextView = findViewById<TextView>(R.id.text_magasin_description)
+        val imageViewMagasin:ImageView = findViewById<ImageView>(R.id.image_magasin)
 
         textViewAddress.text=address.toString()
         textViewCodePostalCity.text= code_postal.toString()+" "+city.toString()
         textViewDescription.text=description.toString()
+        Picasso.get().load(store_img_url.toString()).into(imageViewMagasin)
 
     }
 }
