@@ -9,4 +9,6 @@
     <string name="btn_compte">Compte</string>
 
     <string name="db_url">"https://mobile-database-126d6-default-rtdb.asia-southeast1.firebasedatabase.app"</string>
+
+    <string name="magasin_data">"https://www.ugarit.online/epsi/stores.json"</string>
 </resources>
