@@ -7,7 +7,7 @@ class MagasinDetailActivity: BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_magasindetail)
         setHeaderTitle("Must Be Nom du Magasin")
-
+        showBack()
 
     }
 }
