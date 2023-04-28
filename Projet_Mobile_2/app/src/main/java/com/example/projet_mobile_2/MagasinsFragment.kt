@@ -3,6 +3,7 @@ package com.example.projet_mobile_2
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.os.AsyncTask
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +16,10 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import kotlinx.coroutines.*
+import org.json.JSONArray
 import org.json.JSONObject
+import java.net.URL
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -52,23 +56,6 @@ class MagasinsFragment : Fragment() {
         }
     }
 
-
-    val cities = "{\"cities\":[{\"city\":\"Bordeaux\",\"lan\":44.847807,\"lng\":-0.579472},\n" +
-            "{\"city\":\"Pau\",\"lan\":43.293295,\"lng\":-0.363570},\n" +
-            "{\"city\":\"Nantes\",\"lan\":47.215585,\"lng\":-1.554908},\n" +
-            "{\"city\":\"Paris\",\"lan\":48.854885,\"lng\":2.338646},\n" +
-            "{\"city\":\"Lille\",\"lan\":50.608719,\"lng\":3.063295},\n" +
-            "{\"city\":\"Marseille\",\"lan\":43.293551,\"lng\":5.377397},\n" +
-            "{\"city\":\"Nice\",\"lan\":43.701680,\"lng\":7.260711},\n" +
-            "{\"city\":\"Lyon\",\"lan\":45.759132,\"lng\":4.834604},\n" +
-            "{\"city\":\"Montpellier\",\"lan\":43.586120,\"lng\":3.896094},\n" +
-            "{\"city\":\"Toulouse\",\"lan\":43.533513,\"lng\":1.411209},\n" +
-            "{\"city\":\"Brest\",\"lan\":48.389353,\"lng\":-4.488616},\n" +
-            "{\"city\":\"Limoges\",\"lan\":45.838771,\"lng\":1.262108},\n" +
-            "{\"city\":\"Clermont-Ferrand\",\"lan\":45.780535,\"lng\":3.093242},\n" +
-            "{\"city\":\"Tours\",\"lan\":47.404355,\"lng\":0.688930},\n" +
-            "{\"city\":\"Strasbourg\",\"lan\":48.540395,\"lng\":7.727753}]}";
-
     private val callback = OnMapReadyCallback { googleMap ->
         /**
          * Manipulates the map once available.
@@ -80,20 +67,26 @@ class MagasinsFragment : Fragment() {
          * user has installed Google Play services and returned to the app.
          */
 
-        //48.856614
+        var items: JSONArray? = null
+        CoroutineScope(Dispatchers.IO).launch{
+            val url = getString(R.string.magasin_data)
+            val response = URL(url).readText()
+            val jsonObject = JSONObject(response)
+            items = jsonObject.getJSONArray("stores")
 
-        val jsonCities = JSONObject(cities)
-        val items = jsonCities.getJSONArray("cities")
+        }
+        runBlocking {
+            delay(1000)
+        }
 
-        for (i in 0..items.length() - 1) {
-            val jsonCity = items.getJSONObject(i)
+        for (i in 0..items!!.length() - 1) {
+            val jsonCity = items!!.getJSONObject(i)
             val city = MarkerOptions()
-            val cityLatLng = LatLng(jsonCity.optDouble("lan", 0.0), jsonCity.optDouble("lng", 0.0))
-            city.title(jsonCity.optString("city"))
-            city.snippet("Snippet Test")
+            val cityLatLng = LatLng(jsonCity.optDouble("latitude", 0.0), jsonCity.optDouble("longitude", 0.0))
+            city.title(jsonCity.optString("name"))
+            city.snippet(jsonCity.optString("address") + " - " +jsonCity.optString("zipcode") + " " +jsonCity.optString("city") )
             city.position(cityLatLng)
             googleMap.addMarker(city)
-
         }
 
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(48.854885, 2.338646), 5f))
@@ -106,7 +99,33 @@ class MagasinsFragment : Fragment() {
 
         googleMap.setOnInfoWindowClickListener {
             //(activity as BaseActivity).showToast(it.title.toString())
+            val title = it.title.toString()
+            var address=""
+            var code_postal=""
+            var description=""
+            var city=""
+            var store_img_url = ""
+
+            for (i in 0..items!!.length() - 1) {
+                val jsonCity = items!!.getJSONObject(i)
+                if(jsonCity.getString("name") == it.title.toString()){
+                    store_img_url = jsonCity.getString("pictureStore")
+                    address=jsonCity.getString("address")
+                    code_postal=jsonCity.getString("zipcode")
+                    city=jsonCity.getString("city")
+                    description=jsonCity.getString("description")
+                    break
+                }
+            }
+
             val intent = Intent(activity, MagasinDetailActivity::class.java)
+            intent.putExtra("title", title)
+            intent.putExtra("store_img_url", store_img_url)
+            intent.putExtra("address", address)
+            intent.putExtra("code_postal", code_postal)
+            intent.putExtra("city", city)
+            intent.putExtra("description", description)
+
             startActivity(intent)
         }
         this.googleMap = googleMap
@@ -118,7 +137,6 @@ class MagasinsFragment : Fragment() {
         )
 
     }
-
 
     private var param1: String? = null
     private var param2: String? = null

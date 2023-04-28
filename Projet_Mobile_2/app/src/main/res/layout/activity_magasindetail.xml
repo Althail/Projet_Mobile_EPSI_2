@@ -34,10 +34,10 @@
             />
 
         <TextView
-            android:id="@+id/text_magasin_code_postal"
+            android:id="@+id/text_magasin_code_postal_city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="text_magasin_code_postal"
+            android:text="text_magasin_code_postal_city"
             android:textSize="30dp"
             android:textColor="@color/design_default_color_primary_dark"
             android:layout_marginBottom="20dp"
