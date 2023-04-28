@@ -20,6 +20,9 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyB9CcAN7-j-QE2zdhUyUzlmBYaEmLvJgYI"/>
         <activity
+            android:name=".ProfileActivity"
+            android:exported="true"/>
+        <activity
             android:name=".MagasinDetailActivity"
             android:exported="true"/>
         <activity
