@@ -29,6 +29,9 @@ class BarcodeActivity : AppCompatActivity() {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container, carteFragment)
                         .commit()
+
+
+
                     true
                 }
                 R.id.action_recherche -> {
@@ -48,6 +51,7 @@ class BarcodeActivity : AppCompatActivity() {
                 else -> false
             }
         }
+
 
         // Afficher le fragment d'accueil par défaut
         val defaultFragment = CarteFragment()
