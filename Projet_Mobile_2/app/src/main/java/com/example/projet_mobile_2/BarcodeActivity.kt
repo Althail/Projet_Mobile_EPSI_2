@@ -1,6 +1,9 @@
 package com.example.projet_mobile_2
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -15,7 +18,7 @@ class BarcodeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_barcode)
-
+        showProfile()
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
         // Écouter les changements d'onglet
         bottomNavigationView.setOnItemSelectedListener { menuItem ->
@@ -26,6 +29,9 @@ class BarcodeActivity : AppCompatActivity() {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container, carteFragment)
                         .commit()
+
+
+
                     true
                 }
                 R.id.action_recherche -> {
@@ -46,10 +52,20 @@ class BarcodeActivity : AppCompatActivity() {
             }
         }
 
+
         // Afficher le fragment d'accueil par défaut
         val defaultFragment = CarteFragment()
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, defaultFragment)
             .commit()
+    }
+
+
+    fun showProfile() {
+        val imageViewProfile: ImageView = findViewById<ImageView>(R.id.btn_account)
+        imageViewProfile.setOnClickListener(View.OnClickListener {
+            val intent = Intent(application, ProfileActivity::class.java)
+            startActivity(intent)
+        })
     }
 }

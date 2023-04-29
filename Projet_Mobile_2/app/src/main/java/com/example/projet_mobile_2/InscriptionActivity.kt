@@ -72,7 +72,7 @@ class InscriptionActivity: AppCompatActivity() {
                 input_zipcode,
                 input_city,
                 input_cardRef)
-            database.child(input_firstName).setValue(User).addOnSuccessListener {
+            database.child("Users").setValue(User).addOnSuccessListener {
                 Toast.makeText(this,"Success", Toast.LENGTH_SHORT).show()
             }.addOnFailureListener{Toast.makeText(this,"Failed", Toast.LENGTH_SHORT).show()}
 
