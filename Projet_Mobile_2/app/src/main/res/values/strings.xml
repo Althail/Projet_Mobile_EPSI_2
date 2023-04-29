@@ -13,4 +13,5 @@
     <string name="db_url">"https://mobile-database-126d6-default-rtdb.asia-southeast1.firebasedatabase.app"</string>
 
     <string name="magasin_data">"https://www.ugarit.online/epsi/stores.json"</string>
+    <string name="offres_data">"https://www.ugarit.online/epsi/offers.json"</string>
 </resources>
