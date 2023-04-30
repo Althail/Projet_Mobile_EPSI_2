@@ -23,17 +23,17 @@ class ProfileActivity : BaseActivity() {
         // ┌────────────────────────────────────┐
         // │          EditText                  │
         // └────────────────────────────────────┘
-        val et_first_name_modified: EditText = findViewById<EditText>(R.id.et_first_name_modified)
-        val et_last_name_modified: EditText = findViewById<EditText>(R.id.et_last_name_modified)
-        val et_e_mail_modified: EditText = findViewById<EditText>(R.id.et_e_mail_modified)
-        val et_address_modified: EditText = findViewById<EditText>(R.id.et_address_modified)
-        val et_zip_code_modified: EditText = findViewById<EditText>(R.id.et_zip_code_modified)
-        val et_city_modified: EditText = findViewById<EditText>(R.id.et_city_modified)
+        val etFirstNameModified: EditText = findViewById<EditText>(R.id.et_first_name_modified)
+        val etLastNameModified: EditText = findViewById<EditText>(R.id.et_last_name_modified)
+        val etMailModified: EditText = findViewById<EditText>(R.id.et_e_mail_modified)
+        val etAddressModified: EditText = findViewById<EditText>(R.id.et_address_modified)
+        val etZipCodeModified: EditText = findViewById<EditText>(R.id.et_zip_code_modified)
+        val etCityModified: EditText = findViewById<EditText>(R.id.et_city_modified)
 
         // ┌────────────────────────────────────┐
         // │          Button                    │
         // └────────────────────────────────────┘
-        val btn_profile_modify: Button = findViewById<Button>(R.id.btn_profile_modify)
+        val btnProfileModify: Button = findViewById<Button>(R.id.btn_profile_modify)
 
         // ┌──────────────────────────────────────────┐
         // │          Database Check                  │
@@ -57,12 +57,12 @@ class ProfileActivity : BaseActivity() {
                     // ┌────────────────────────────────────────────────┐
                     // │          Set Data to EditText                  │
                     // └────────────────────────────────────────────────┘
-                    et_first_name_modified.setText(firstName)
-                    et_last_name_modified.setText(lastName)
-                    et_e_mail_modified.setText(email)
-                    et_address_modified.setText(address)
-                    et_zip_code_modified.setText(zipcode)
-                    et_city_modified.setText(city)
+                    etFirstNameModified.setText(firstName)
+                    etLastNameModified.setText(lastName)
+                    etMailModified.setText(email)
+                    etAddressModified.setText(address)
+                    etZipCodeModified.setText(zipcode)
+                    etCityModified.setText(city)
                 }
             }
 
@@ -76,7 +76,7 @@ class ProfileActivity : BaseActivity() {
         // ┌───────────────────────────────────────────────┐
         // │          Data Modification                    │
         // └───────────────────────────────────────────────┘
-        btn_profile_modify.setOnClickListener {
+        btnProfileModify.setOnClickListener {
             query.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     val firstUserSnapshot = dataSnapshot.children.firstOrNull()
@@ -85,12 +85,12 @@ class ProfileActivity : BaseActivity() {
                         val firstUser = firstUserSnapshot.getValue(User::class.java)
 
                         val modifiedUser = User(
-                            firstName = et_first_name_modified.text.toString(),
-                            lastName = et_last_name_modified.text.toString(),
-                            email = et_e_mail_modified.text.toString(),
-                            address = et_address_modified.text.toString(),
-                            zipcode = et_zip_code_modified.text.toString(),
-                            city = et_city_modified.text.toString(),
+                            firstName = etFirstNameModified.text.toString(),
+                            lastName = etLastNameModified.text.toString(),
+                            email = etMailModified.text.toString(),
+                            address = etAddressModified.text.toString(),
+                            zipcode = etZipCodeModified.text.toString(),
+                            city = etCityModified.text.toString(),
                             cardRef = firstUser!!.cardRef
                         )
 
@@ -126,6 +126,9 @@ class ProfileActivity : BaseActivity() {
         }
     }
 
+    // ┌─────────────────────────────────────────────────────┐
+    // │          CUSTOM : USER to Json Object               │
+    // └─────────────────────────────────────────────────────┘
     fun userToJson(user: User): JSONObject {
         val jsonObject = JSONObject()
 

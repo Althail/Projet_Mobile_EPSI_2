@@ -80,7 +80,9 @@ class OffresFragment : Fragment() {
     companion object {
         // factory method and constants
     }
-
+    // ┌─────────────────────────────────────────────────────┐
+    // │          CUSTOM : DATA REQUEST (API)                │
+    // └─────────────────────────────────────────────────────┘
     fun createOffresDataRequest(context: Context, offresData: String): Request {
         return Request.Builder()
             .url(offresData)

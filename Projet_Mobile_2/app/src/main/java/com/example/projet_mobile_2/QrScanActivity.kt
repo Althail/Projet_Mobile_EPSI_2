@@ -37,17 +37,17 @@ class QrScanActivity : AppCompatActivity() {
         }
 
         // Reset Button
-        val btn_reset: Button = findViewById(R.id.btn_scan_reset)
-        btn_reset.setOnClickListener {
+        val btnReset: Button = findViewById(R.id.btn_scan_reset)
+        btnReset.setOnClickListener {
             if (::codeScanner.isInitialized) {
                 codeScanner.startPreview()
             }
         }
 
         // Send Button
-        val btn_send: Button = findViewById(R.id.btn_send_scan_data)
+        val btnSend: Button = findViewById(R.id.btn_send_scan_data)
 
-        btn_send.setOnClickListener {
+        btnSend.setOnClickListener {
             val jsonObject = JSONObject(scannedData)
 
             val firstName = jsonObject.getString("firstName")
