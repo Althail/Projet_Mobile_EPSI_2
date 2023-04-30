@@ -1,5 +1,6 @@
 package com.example.projet_mobile_2
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -44,13 +45,10 @@ class OffresFragment : Fragment() {
         val offresAdapter = OffresAdapter(offres)
         recyclerviewOffers.adapter = offresAdapter
 
+        val offresData = getString(R.string.offres_data)
+        val request = createOffresDataRequest(requireContext(), offresData)
         val okHttpClient: OkHttpClient = OkHttpClient.Builder().build()
-        val mRequestURL = getString(R.string.offres_data)
-        val request = Request.Builder()
-            .url(mRequestURL)
-            .get()
-            .cacheControl(CacheControl.FORCE_NETWORK)
-            .build()
+
         okHttpClient.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 // handle failure
@@ -83,4 +81,11 @@ class OffresFragment : Fragment() {
         // factory method and constants
     }
 
+    fun createOffresDataRequest(context: Context, offresData: String): Request {
+        return Request.Builder()
+            .url(offresData)
+            .get()
+            .cacheControl(CacheControl.FORCE_NETWORK)
+            .build()
+    }
 }
