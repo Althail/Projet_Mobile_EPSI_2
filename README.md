@@ -16,11 +16,12 @@
 |---|---|
 |0| Maquettage (Consigne) |
 |1| Splash  |
-|2| Main    | 
-|3|  Group Infos |
-|4|  Student Info |
-|5|  Categories |
-|6|  Products List |
+|2| Quand il n'y a pas de compte    | 
+|3|  Quand il a son compte |
+|4|  Page Offres |
+|5|  Page Magasins |
+|6|  Détail d'un Magasin |
+|7|  Page Compte |
 
 ----
 
