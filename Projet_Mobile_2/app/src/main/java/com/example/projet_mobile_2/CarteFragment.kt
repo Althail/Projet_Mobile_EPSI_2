@@ -17,7 +17,6 @@ import com.google.zxing.WriterException
 import com.google.zxing.common.BitMatrix
 import org.json.JSONObject
 
-// TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -28,7 +27,6 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class CarteFragment : Fragment() {
-    // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
 
@@ -46,6 +44,10 @@ class CarteFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_carte, container, false)
+
+        // ┌──────────────────────────────────────────┐
+        // │          Database Check                  │
+        // └──────────────────────────────────────────┘
         val query = setUserData("Users").limitToFirst(1)
 
         query.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -60,11 +62,12 @@ class CarteFragment : Fragment() {
                     val lastName = jsonObject!!.getString("lastName")
                     val cardRef = jsonObject!!.getString("cardRef")
 
-                    val barcode_owner_name: TextView = view.findViewById(R.id.barcode_owner_name)
-                    val barcode_ref_number: TextView = view.findViewById(R.id.barcode_ref_number)
-                    // Set the text of the TextView
-                    barcode_owner_name.setText(firstName + " " + lastName)
-                    barcode_ref_number.setText(cardRef)
+                    val barcodeOwnerName: TextView = view.findViewById(R.id.barcode_owner_name)
+                    val barcodeRefNumber: TextView = view.findViewById(R.id.barcode_ref_number)
+
+                    // Set the text of the TextView & ImageView
+                    barcodeOwnerName.text = "$firstName $lastName"
+                    barcodeRefNumber.text = cardRef
                     generateBarcode(cardRef ?: "0123456789")
                 }
             }
@@ -86,7 +89,6 @@ class CarteFragment : Fragment() {
          * @param param2 Parameter 2.
          * @return A new instance of fragment Home.
          */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             CarteFragment().apply {
@@ -97,6 +99,9 @@ class CarteFragment : Fragment() {
             }
     }
 
+    // ┌─────────────────────────────────────────────────────┐
+    // │          CUSTOM : USER to Json Object               │
+    // └─────────────────────────────────────────────────────┘
     fun userToJson(user: User): JSONObject {
         val jsonObject = JSONObject()
 
@@ -111,18 +116,27 @@ class CarteFragment : Fragment() {
         return jsonObject
     }
 
+    // ┌──────────────────────────────────────────────────────────────────┐
+    // │          CUSTOM : Set User Database (Connection)                 │
+    // └──────────────────────────────────────────────────────────────────┘
     fun setUserData(pathString: String): DatabaseReference {
         val database = FirebaseDatabase.getInstance(getString(R.string.db_url)).reference
 
         return database.child(pathString)
     }
 
+    // ┌────────────────────────────────────────────────────┐
+    // │          CUSTOM : Generate Barcode                 │
+    // └────────────────────────────────────────────────────┘
     private fun generateBarcode(refNum: String) {
         val imageView: ImageView = requireView().findViewById<ImageView>(R.id.image_barcode)
         val bitmap = encodeBitmap(refNum, BarcodeFormat.CODE_128, 800, 300)
         imageView.setImageBitmap(bitmap)
     }
 
+    // ┌─────────────────────────────────────────────────┐
+    // │          CUSTOM : Encode Bitmap                 │
+    // └─────────────────────────────────────────────────┘
     @Throws(WriterException::class)
     private fun encodeBitmap(
         contents: String,
