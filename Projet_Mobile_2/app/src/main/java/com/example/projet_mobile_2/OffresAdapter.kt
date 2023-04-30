@@ -8,6 +8,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.projet_mobile_2.Data.Offres
 import com.squareup.picasso.Picasso
 
 class OffresAdapter(val offres: ArrayList<Offres>) :

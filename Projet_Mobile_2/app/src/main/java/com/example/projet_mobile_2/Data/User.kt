@@ -1,4 +1,4 @@
-package com.example.projet_mobile_2
+package com.example.projet_mobile_2.Data
 
 data class User(
     var firstName: String? = null,

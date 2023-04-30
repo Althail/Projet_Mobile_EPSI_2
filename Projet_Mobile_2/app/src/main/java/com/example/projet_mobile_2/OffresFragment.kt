@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.projet_mobile_2.Data.Offres
 import okhttp3.*
 import org.json.JSONObject
 import java.io.IOException

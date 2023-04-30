@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.example.projet_mobile_2.Data.User
 import com.google.firebase.database.*
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
