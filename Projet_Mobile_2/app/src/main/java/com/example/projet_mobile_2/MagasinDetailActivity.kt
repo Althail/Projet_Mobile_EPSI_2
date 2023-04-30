@@ -5,7 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.squareup.picasso.Picasso
 
-class MagasinDetailActivity: BaseActivity() {
+class MagasinDetailActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_magasindetail)
@@ -18,7 +18,7 @@ class MagasinDetailActivity: BaseActivity() {
         var city: String? = null
         var description: String? = null
 
-        if (intent !=null) {
+        if (intent != null) {
             title = intent.getStringExtra("title")
             store_img_url = intent.getStringExtra("store_img_url")
             address = intent.getStringExtra("address")
@@ -31,14 +31,15 @@ class MagasinDetailActivity: BaseActivity() {
         setHeaderTitle(title.toString())
         showBack()
 
-        val textViewAddress:TextView = findViewById<TextView>(R.id.text_magasin_address)
-        val textViewCodePostalCity:TextView = findViewById<TextView>(R.id.text_magasin_code_postal_city)
-        val textViewDescription:TextView = findViewById<TextView>(R.id.text_magasin_description)
-        val imageViewMagasin:ImageView = findViewById<ImageView>(R.id.image_magasin)
+        val textViewAddress: TextView = findViewById<TextView>(R.id.text_magasin_address)
+        val textViewCodePostalCity: TextView =
+            findViewById<TextView>(R.id.text_magasin_code_postal_city)
+        val textViewDescription: TextView = findViewById<TextView>(R.id.text_magasin_description)
+        val imageViewMagasin: ImageView = findViewById<ImageView>(R.id.image_magasin)
 
-        textViewAddress.text=address.toString()
-        textViewCodePostalCity.text= code_postal.toString()+" "+city.toString()
-        textViewDescription.text=description.toString()
+        textViewAddress.text = address.toString()
+        textViewCodePostalCity.text = code_postal.toString() + " " + city.toString()
+        textViewDescription.text = description.toString()
         Picasso.get().load(store_img_url.toString()).into(imageViewMagasin)
 
     }

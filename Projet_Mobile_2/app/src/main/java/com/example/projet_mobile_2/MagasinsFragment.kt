@@ -3,7 +3,6 @@ package com.example.projet_mobile_2
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.os.AsyncTask
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -68,7 +67,7 @@ class MagasinsFragment : Fragment() {
          */
 
         var items: JSONArray? = null
-        CoroutineScope(Dispatchers.IO).launch{
+        CoroutineScope(Dispatchers.IO).launch {
             val url = getString(R.string.magasin_data)
             val response = URL(url).readText()
             val jsonObject = JSONObject(response)
@@ -82,9 +81,14 @@ class MagasinsFragment : Fragment() {
         for (i in 0..items!!.length() - 1) {
             val jsonCity = items!!.getJSONObject(i)
             val city = MarkerOptions()
-            val cityLatLng = LatLng(jsonCity.optDouble("latitude", 0.0), jsonCity.optDouble("longitude", 0.0))
+            val cityLatLng =
+                LatLng(jsonCity.optDouble("latitude", 0.0), jsonCity.optDouble("longitude", 0.0))
             city.title(jsonCity.optString("name"))
-            city.snippet(jsonCity.optString("address") + " - " +jsonCity.optString("zipcode") + " " +jsonCity.optString("city") )
+            city.snippet(
+                jsonCity.optString("address") + " - " + jsonCity.optString("zipcode") + " " + jsonCity.optString(
+                    "city"
+                )
+            )
             city.position(cityLatLng)
             googleMap.addMarker(city)
         }
@@ -100,20 +104,20 @@ class MagasinsFragment : Fragment() {
         googleMap.setOnInfoWindowClickListener {
             //(activity as BaseActivity).showToast(it.title.toString())
             val title = it.title.toString()
-            var address=""
-            var code_postal=""
-            var description=""
-            var city=""
+            var address = ""
+            var code_postal = ""
+            var description = ""
+            var city = ""
             var store_img_url = ""
 
             for (i in 0..items!!.length() - 1) {
                 val jsonCity = items!!.getJSONObject(i)
-                if(jsonCity.getString("name") == it.title.toString()){
+                if (jsonCity.getString("name") == it.title.toString()) {
                     store_img_url = jsonCity.getString("pictureStore")
-                    address=jsonCity.getString("address")
-                    code_postal=jsonCity.getString("zipcode")
-                    city=jsonCity.getString("city")
-                    description=jsonCity.getString("description")
+                    address = jsonCity.getString("address")
+                    code_postal = jsonCity.getString("zipcode")
+                    city = jsonCity.getString("city")
+                    description = jsonCity.getString("description")
                     break
                 }
             }
@@ -157,6 +161,7 @@ class MagasinsFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_magasins, container, false)
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?

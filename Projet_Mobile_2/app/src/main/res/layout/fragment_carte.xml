@@ -29,12 +29,11 @@
                 android:layout_marginBottom="-15dp"
                 android:gravity="center"
                 android:text="Nom Prénom"
-                android:textSize="18dp"
-                ></TextView>
+                android:textSize="18dp"></TextView>
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/image_barcode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"

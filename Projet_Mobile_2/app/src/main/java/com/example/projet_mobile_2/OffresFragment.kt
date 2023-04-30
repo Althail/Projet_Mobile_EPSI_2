@@ -1,19 +1,13 @@
 package com.example.projet_mobile_2
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import okhttp3.CacheControl
-import okhttp3.Call
-import okhttp3.Callback
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.Response
+import okhttp3.*
 import org.json.JSONObject
 import java.io.IOException
 
@@ -43,14 +37,15 @@ class OffresFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val offres= arrayListOf<Offres>()
-        val recyclerviewOffers:RecyclerView=view.findViewById<RecyclerView>(R.id.recyclerviewOffers)
-        recyclerviewOffers.layoutManager= LinearLayoutManager(requireContext())
-        val offresAdapter=OffresAdapter(offres)
-        recyclerviewOffers.adapter=offresAdapter
+        val offres = arrayListOf<Offres>()
+        val recyclerviewOffers: RecyclerView =
+            view.findViewById<RecyclerView>(R.id.recyclerviewOffers)
+        recyclerviewOffers.layoutManager = LinearLayoutManager(requireContext())
+        val offresAdapter = OffresAdapter(offres)
+        recyclerviewOffers.adapter = offresAdapter
 
         val okHttpClient: OkHttpClient = OkHttpClient.Builder().build()
-        val mRequestURL=getString(R.string.offres_data)
+        val mRequestURL = getString(R.string.offres_data)
         val request = Request.Builder()
             .url(mRequestURL)
             .get()

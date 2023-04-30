@@ -1,27 +1,21 @@
 package com.example.projet_mobile_2
 
+import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import com.budiyev.android.codescanner.CodeScanner
-import android.Manifest
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import com.budiyev.android.codescanner.AutoFocusMode
-import com.budiyev.android.codescanner.CodeScannerView
-import com.budiyev.android.codescanner.DecodeCallback
-import com.budiyev.android.codescanner.ErrorCallback
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import com.budiyev.android.codescanner.*
 import org.json.JSONObject
 
-class QrScanActivity: AppCompatActivity() {
+class QrScanActivity : AppCompatActivity() {
 
-    lateinit var codeScanner : CodeScanner
+    lateinit var codeScanner: CodeScanner
     var scannedData: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,25 +23,31 @@ class QrScanActivity: AppCompatActivity() {
         setContentView(R.layout.activity_qrscan)
 
         // Check Authentication
-        if(ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED){
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA),
-                123)
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.CAMERA
+            ) == PackageManager.PERMISSION_DENIED
+        ) {
+            ActivityCompat.requestPermissions(
+                this, arrayOf(Manifest.permission.CAMERA),
+                123
+            )
         } else {
             scan()
         }
 
         // Reset Button
-        val btn_reset:Button = findViewById(R.id.btn_scan_reset)
-        btn_reset.setOnClickListener{
-            if(::codeScanner.isInitialized){
+        val btn_reset: Button = findViewById(R.id.btn_scan_reset)
+        btn_reset.setOnClickListener {
+            if (::codeScanner.isInitialized) {
                 codeScanner.startPreview()
             }
         }
 
         // Send Button
-        val btn_send:Button = findViewById(R.id.btn_send_scan_data)
+        val btn_send: Button = findViewById(R.id.btn_send_scan_data)
 
-        btn_send.setOnClickListener{
+        btn_send.setOnClickListener {
             val jsonObject = JSONObject(scannedData)
 
             val firstName = jsonObject.getString("firstName")
@@ -58,14 +58,14 @@ class QrScanActivity: AppCompatActivity() {
             val city = jsonObject.getString("city")
             val cardRef = jsonObject.getString("cardRef")
 
-            val newIntent= Intent(application, InscriptionActivity::class.java);
-            newIntent.putExtra("firstName",firstName)
-            newIntent.putExtra("lastName",lastName)
-            newIntent.putExtra("email",email)
-            newIntent.putExtra("address",address)
-            newIntent.putExtra("zipcode",zipcode)
-            newIntent.putExtra("city",city)
-            newIntent.putExtra("cardRef",cardRef)
+            val newIntent = Intent(application, InscriptionActivity::class.java);
+            newIntent.putExtra("firstName", firstName)
+            newIntent.putExtra("lastName", lastName)
+            newIntent.putExtra("email", email)
+            newIntent.putExtra("address", address)
+            newIntent.putExtra("zipcode", zipcode)
+            newIntent.putExtra("city", city)
+            newIntent.putExtra("cardRef", cardRef)
 
             startActivity(newIntent)
         }
@@ -76,7 +76,7 @@ class QrScanActivity: AppCompatActivity() {
 
         val codeText: TextView = findViewById<TextView>(R.id.scanned_text)
 
-        codeScanner = CodeScanner(this,scannerView)
+        codeScanner = CodeScanner(this, scannerView)
 
         codeScanner.apply {
             camera = CodeScanner.CAMERA_BACK
@@ -87,7 +87,7 @@ class QrScanActivity: AppCompatActivity() {
             isFlashEnabled = false
 
             // Show Text From Scan
-            decodeCallback = DecodeCallback{
+            decodeCallback = DecodeCallback {
                 runOnUiThread {
 
                     codeText.text = it.text
@@ -118,10 +118,10 @@ class QrScanActivity: AppCompatActivity() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if(requestCode ==123){
-            if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
+        if (requestCode == 123) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(applicationContext, "Camera Authorized", Toast.LENGTH_SHORT).show()
-            }else{
+            } else {
                 Toast.makeText(applicationContext, "Camera Denied", Toast.LENGTH_SHORT).show()
             }
         }
@@ -129,14 +129,14 @@ class QrScanActivity: AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        if(::codeScanner.isInitialized){
+        if (::codeScanner.isInitialized) {
             codeScanner.startPreview()
         }
     }
 
     override fun onPause() {
         super.onPause()
-        if(::codeScanner.isInitialized){
+        if (::codeScanner.isInitialized) {
             codeScanner.releaseResources()
         }
     }

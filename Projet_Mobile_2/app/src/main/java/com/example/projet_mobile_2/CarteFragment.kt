@@ -1,17 +1,20 @@
 package com.example.projet_mobile_2
 
+import android.graphics.Bitmap
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import androidx.fragment.app.Fragment
+import com.google.firebase.database.*
+import com.google.zxing.BarcodeFormat
+import com.google.zxing.MultiFormatWriter
+import com.google.zxing.WriterException
+import com.google.zxing.common.BitMatrix
 import org.json.JSONObject
 
 // TODO: Rename parameter arguments, choose names that match
@@ -43,9 +46,7 @@ class CarteFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_carte, container, false)
-
-        val database = FirebaseDatabase.getInstance(getString(R.string.db_url)).reference
-        val query = database.child("Users").limitToFirst(1)
+        val query = setUserData("Users").limitToFirst(1)
 
         query.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -54,7 +55,6 @@ class CarteFragment : Fragment() {
                 for (userSnapshot in dataSnapshot.children) {
                     val user = userSnapshot.getValue(User::class.java)
                     val jsonObject = user?.let { userToJson(it) }
-                    Log.d("TAG", "User: $user")
 
                     val firstName = jsonObject!!.getString("firstName")
                     val lastName = jsonObject!!.getString("lastName")
@@ -65,6 +65,7 @@ class CarteFragment : Fragment() {
                     // Set the text of the TextView
                     barcode_owner_name.setText(firstName + " " + lastName)
                     barcode_ref_number.setText(cardRef)
+                    generateBarcode(cardRef ?: "0123456789")
                 }
             }
 
@@ -73,7 +74,6 @@ class CarteFragment : Fragment() {
                 Log.w("TAG", "Failed to read value.", databaseError.toException())
             }
         })
-
         return view
     }
 
@@ -109,5 +109,38 @@ class CarteFragment : Fragment() {
         jsonObject.put("cardRef", user.cardRef)
 
         return jsonObject
+    }
+
+    fun setUserData(pathString: String): DatabaseReference {
+        val database = FirebaseDatabase.getInstance(getString(R.string.db_url)).reference
+
+        return database.child(pathString)
+    }
+
+    private fun generateBarcode(refNum: String) {
+        val imageView: ImageView = requireView().findViewById<ImageView>(R.id.image_barcode)
+        val bitmap = encodeBitmap(refNum, BarcodeFormat.CODE_128, 800, 300)
+        imageView.setImageBitmap(bitmap)
+    }
+
+    @Throws(WriterException::class)
+    private fun encodeBitmap(
+        contents: String,
+        format: BarcodeFormat,
+        imageWidth: Int,
+        imageHeight: Int
+    ): Bitmap {
+        val writer = MultiFormatWriter()
+        val bitMatrix: BitMatrix = writer.encode(contents, format, imageWidth, imageHeight)
+        val pixels = IntArray(imageWidth * imageHeight)
+        for (y in 0 until imageHeight) {
+            val offset = y * imageWidth
+            for (x in 0 until imageWidth) {
+                pixels[offset + x] = if (bitMatrix[x, y]) Color.BLACK else Color.WHITE
+            }
+        }
+        val bitmap = Bitmap.createBitmap(imageWidth, imageHeight, Bitmap.Config.ARGB_8888)
+        bitmap.setPixels(pixels, 0, imageWidth, 0, 0, imageWidth, imageHeight)
+        return bitmap
     }
 }
