@@ -69,16 +69,14 @@ class MagasinsFragment : Fragment() {
         var items: JSONArray? = null
         CoroutineScope(Dispatchers.IO).launch {
             val url = getString(R.string.magasin_data)
-            val response = URL(url).readText()
-            val jsonObject = JSONObject(response)
-            items = jsonObject.getJSONArray("stores")
-
+            val deferred = async { fetchItems(url, "stores") }
+            items = deferred.await()
         }
         runBlocking {
             delay(1000)
         }
 
-        for (i in 0..items!!.length() - 1) {
+        for (i in 0 until items!!.length()) {
             val jsonCity = items!!.getJSONObject(i)
             val city = MarkerOptions()
             val cityLatLng =
@@ -100,22 +98,21 @@ class MagasinsFragment : Fragment() {
 
         }
 
-
         googleMap.setOnInfoWindowClickListener {
             //(activity as BaseActivity).showToast(it.title.toString())
             val title = it.title.toString()
             var address = ""
-            var code_postal = ""
+            var codePostal = ""
             var description = ""
             var city = ""
-            var store_img_url = ""
+            var storeImgUrl = ""
 
-            for (i in 0..items!!.length() - 1) {
+            for (i in 0 until items!!.length()) {
                 val jsonCity = items!!.getJSONObject(i)
                 if (jsonCity.getString("name") == it.title.toString()) {
-                    store_img_url = jsonCity.getString("pictureStore")
+                    storeImgUrl = jsonCity.getString("pictureStore")
                     address = jsonCity.getString("address")
-                    code_postal = jsonCity.getString("zipcode")
+                    codePostal = jsonCity.getString("zipcode")
                     city = jsonCity.getString("city")
                     description = jsonCity.getString("description")
                     break
@@ -124,9 +121,9 @@ class MagasinsFragment : Fragment() {
 
             val intent = Intent(activity, MagasinDetailActivity::class.java)
             intent.putExtra("title", title)
-            intent.putExtra("store_img_url", store_img_url)
+            intent.putExtra("store_img_url", storeImgUrl)
             intent.putExtra("address", address)
-            intent.putExtra("code_postal", code_postal)
+            intent.putExtra("code_postal", codePostal)
             intent.putExtra("city", city)
             intent.putExtra("description", description)
 
@@ -186,5 +183,14 @@ class MagasinsFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    // ┌────────────────────────────────────────────────────────────┐
+    // │          CUSTOM : FETCH ITEM (JSON FROM API)               │
+    // └────────────────────────────────────────────────────────────┘
+    private suspend fun fetchItems(url: String, key: String): JSONArray {
+        val response = URL(url).readText()
+        val jsonObject = JSONObject(response)
+        return jsonObject.getJSONArray(key)
     }
 }
