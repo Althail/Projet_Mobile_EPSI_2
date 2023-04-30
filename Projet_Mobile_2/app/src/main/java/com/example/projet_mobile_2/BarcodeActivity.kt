@@ -33,6 +33,7 @@ class BarcodeActivity : AppCompatActivity() {
                         .commit()
                     true
                 }
+
                 // ┌──────────────────────────────────────────┐
                 // │          Fragment Offre                  │
                 // └──────────────────────────────────────────┘
@@ -43,6 +44,7 @@ class BarcodeActivity : AppCompatActivity() {
                         .commit()
                     true
                 }
+
                 // ┌────────────────────────────────────────────┐
                 // │          Fragment Magasin                  │
                 // └────────────────────────────────────────────┘
@@ -57,7 +59,6 @@ class BarcodeActivity : AppCompatActivity() {
             }
         }
 
-
         // ┌───────────────────────────────────────────────────────┐
         // │          By Default : Fragment Carte                  │
         // └───────────────────────────────────────────────────────┘
@@ -66,7 +67,6 @@ class BarcodeActivity : AppCompatActivity() {
             .replace(R.id.fragment_container, defaultFragment)
             .commit()
     }
-
 
     // ┌─────────────────────────────────────────────────────────┐
     // │          CUSTOM : Show Profile Activity                 │
