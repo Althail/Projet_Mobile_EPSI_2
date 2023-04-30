@@ -15,19 +15,19 @@ class MainActivity : AppCompatActivity() {
         // ┌──────────────────────────────────────────┐
         // │          Button - Inscription            │
         // └──────────────────────────────────────────┘
-        var btn_inscription: Button = findViewById<Button>(R.id.btn_inscription)
-        btn_inscription.setOnClickListener(View.OnClickListener() {
-            var intent_inscription = Intent(application, InscriptionActivity::class.java);
-            startActivity(intent_inscription)
+        var btnInscription: Button = findViewById<Button>(R.id.btn_inscription)
+        btnInscription.setOnClickListener(View.OnClickListener() {
+            var intentInscription = Intent(application, InscriptionActivity::class.java);
+            startActivity(intentInscription)
         })
 
         // ┌──────────────────────────────────────────┐
         // │          Button - QR Code                │
         // └──────────────────────────────────────────┘
-        var btn_qr_code: Button = findViewById<Button>(R.id.btn_qr_code)
-        btn_qr_code.setOnClickListener(View.OnClickListener() {
-            var intent_qc_code = Intent(application, QrScanActivity::class.java)
-            startActivity(intent_qc_code)
+        var btnQrCode: Button = findViewById<Button>(R.id.btn_qr_code)
+        btnQrCode.setOnClickListener(View.OnClickListener() {
+            var intentQrCode = Intent(application, QrScanActivity::class.java)
+            startActivity(intentQrCode)
         })
 
     }
