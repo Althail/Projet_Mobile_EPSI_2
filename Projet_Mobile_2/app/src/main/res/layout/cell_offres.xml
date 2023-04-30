@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:id="@+id/layoutContent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutContent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="20dp"
@@ -27,8 +27,8 @@
             android:id="@+id/descriptionViewOffres"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="14dp"
-            android:maxLines="2" />
+            android:maxLines="2"
+            android:textSize="14dp" />
 
 
     </LinearLayout>

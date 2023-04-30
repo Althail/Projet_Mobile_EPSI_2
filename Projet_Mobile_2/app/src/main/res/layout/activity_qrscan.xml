@@ -24,16 +24,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/scanned_text"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_send_scan_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/scanned_text"
-            android:text="ENVOYER"
-            android:layout_marginRight="15dp" />
+            android:layout_marginRight="15dp"
+            android:text="ENVOYER" />
 
         <Button
             android:id="@+id/btn_scan_reset"
