@@ -22,34 +22,44 @@
             android:layout_height="300dp"
             android:layout_marginBottom="20dp" />
 
-        <TextView
-            android:id="@+id/text_magasin_address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginBottom="20dp"
-            android:text="text_magasin_address"
-            android:textColor="@color/design_default_color_primary_dark"
-            android:textSize="30dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <TextView
+                android:id="@+id/text_magasin_address"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:text="text_magasin_address"
+                android:textSize="30dp"
+                android:textColor="@color/design_default_color_primary_dark"
+                android:layout_marginBottom="20dp"
+                android:textAlignment="center"
+                />
 
-        <TextView
-            android:id="@+id/text_magasin_code_postal_city"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginBottom="20dp"
-            android:text="text_magasin_code_postal_city"
-            android:textColor="@color/design_default_color_primary_dark"
-            android:textSize="30dp" />
+            <TextView
+                android:id="@+id/text_magasin_code_postal_city"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:text="text_magasin_code_postal_city"
+                android:textSize="30dp"
+                android:textColor="@color/design_default_color_primary_dark"
+                android:layout_marginBottom="20dp"
+                android:textAlignment="center"
+                />
 
-        <TextView
-            android:id="@+id/text_magasin_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="text_magasin_description"
-            android:textColor="@color/design_default_color_primary_dark"
-            android:textSize="30dp" />
+            <TextView
+                android:id="@+id/text_magasin_description"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:text="text_magasin_description"
+                android:textSize="30dp"
+                android:textColor="@color/design_default_color_primary_dark"
+                android:textAlignment="center"
+
+                />
+        </LinearLayout>
 
     </LinearLayout>
 
