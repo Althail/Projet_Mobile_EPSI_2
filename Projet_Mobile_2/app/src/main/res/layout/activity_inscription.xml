@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_700">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/title_creation_account"
+            android:textColor="@color/white"
+            android:textSize="25dp" />
+
+    </Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="3"
+                    android:text="Nom"
+                    android:textSize="18dp" />
+
+                <EditText
+                    android:id="@+id/et_first_name"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Insérez votre nom" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:layout_marginRight="15dp"
+                    android:text="Prénom"
+                    android:textSize="18dp" />
+
+                <EditText
+                    android:id="@+id/et_last_name"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Insérez votre prénom" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:layout_marginRight="15dp"
+                    android:text="Email"
+                    android:textSize="18dp" />
+
+                <EditText
+                    android:id="@+id/et_e_mail"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Insérez votre e-mail" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:layout_marginRight="15dp"
+                    android:text="Adresse"
+                    android:textSize="18dp" />
+
+                <EditText
+                    android:id="@+id/et_address"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Insérez votre adresse" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:layout_marginRight="15dp"
+                    android:text="Code Postal"
+                    android:textSize="18dp" />
+
+                <EditText
+                    android:id="@+id/et_zip_code"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Insérez votre code postal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:layout_marginRight="15dp"
+                    android:text="Ville"
+                    android:textSize="18dp" />
+
+                <EditText
+                    android:id="@+id/et_city"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Insérez votre ville" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:layout_marginRight="15dp"
+                    android:text="Carte de fidalité"
+                    android:textSize="14dp" />
+
+                <EditText
+                    android:id="@+id/et_cardRef"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Insérez votre carte de fidelité" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/btn_inscription"></Button>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

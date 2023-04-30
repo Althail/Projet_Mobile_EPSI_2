@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="action_carte" type="id" />
+    <item name="action_offre" type="id" />
+    <item name="action_magasin" type="id" />
+    <item name="fragment_container" type="id" />
+</resources>
