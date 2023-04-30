@@ -1,20 +1,16 @@
 package com.example.projet_mobile_2
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.example.projet_mobile_2.Data.User
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import org.json.JSONObject
-import kotlin.reflect.typeOf
 
 class ProfileActivity : BaseActivity() {
 
@@ -25,29 +21,30 @@ class ProfileActivity : BaseActivity() {
         setHeaderTitle("Compte")
         showBack()
 
+        // ┌────────────────────────────────────┐
+        // │          EditText                  │
+        // └────────────────────────────────────┘
+        val etFirstNameModified: EditText = findViewById<EditText>(R.id.et_first_name_modified)
+        val etLastNameModified: EditText = findViewById<EditText>(R.id.et_last_name_modified)
+        val etMailModified: EditText = findViewById<EditText>(R.id.et_e_mail_modified)
+        val etAddressModified: EditText = findViewById<EditText>(R.id.et_address_modified)
+        val etZipCodeModified: EditText = findViewById<EditText>(R.id.et_zip_code_modified)
+        val etCityModified: EditText = findViewById<EditText>(R.id.et_city_modified)
+
+        // ┌────────────────────────────────────┐
+        // │          Button                    │
+        // └────────────────────────────────────┘
+        val btnProfileModify: Button = findViewById<Button>(R.id.btn_profile_modify)
+
         // ┌──────────────────────────────────────────┐
         // │          Database Check                  │
         // └──────────────────────────────────────────┘
-        val et_first_name_modified:EditText = findViewById<EditText>(R.id.et_first_name_modified)
-        val et_last_name_modified:EditText = findViewById<EditText>(R.id.et_last_name_modified)
-        val et_e_mail_modified:EditText = findViewById<EditText>(R.id.et_e_mail_modified)
-        val et_address_modified:EditText = findViewById<EditText>(R.id.et_address_modified)
-        val et_zip_code_modified:EditText = findViewById<EditText>(R.id.et_zip_code_modified)
-        val et_city_modified:EditText = findViewById<EditText>(R.id.et_city_modified)
-
-        val database = FirebaseDatabase.getInstance(getString(R.string.db_url)).reference
-        val query = database.child("Users").limitToFirst(1)
-
-        val btn_profile_modify:Button = findViewById<Button>(R.id.btn_profile_modify)
+        val query = setUserData("Users").limitToFirst(1)
 
         query.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // This will be called once with the initial value and again
-                // whenever data at this location is updated.
                 val firstUser = dataSnapshot.children.firstOrNull()?.getValue(User::class.java)
                 if (firstUser != null) {
-
-                    // Get the User object from the first child
 
                     val jsonObject = firstUser?.let { userToJson(it) }
 
@@ -58,14 +55,15 @@ class ProfileActivity : BaseActivity() {
                     var zipcode = jsonObject.getString("zipcode")
                     var city = jsonObject.getString("city")
 
-                    et_first_name_modified.setText(firstName)
-                    et_last_name_modified.setText(lastName)
-                    et_e_mail_modified.setText(email)
-                    et_address_modified.setText(address)
-                    et_zip_code_modified.setText(zipcode)
-                    et_city_modified.setText(city)
-
-
+                    // ┌────────────────────────────────────────────────┐
+                    // │          Set Data to EditText                  │
+                    // └────────────────────────────────────────────────┘
+                    etFirstNameModified.setText(firstName)
+                    etLastNameModified.setText(lastName)
+                    etMailModified.setText(email)
+                    etAddressModified.setText(address)
+                    etZipCodeModified.setText(zipcode)
+                    etCityModified.setText(city)
                 }
             }
 
@@ -79,36 +77,39 @@ class ProfileActivity : BaseActivity() {
         // ┌───────────────────────────────────────────────┐
         // │          Data Modification                    │
         // └───────────────────────────────────────────────┘
-        btn_profile_modify.setOnClickListener{
+        btnProfileModify.setOnClickListener {
             query.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    // This will be called once with the initial value and again
-                    // whenever data at this location is updated.
                     val firstUserSnapshot = dataSnapshot.children.firstOrNull()
                     if (firstUserSnapshot != null) {
-                        // Get the User object from the first child
                         val firstUserKey = firstUserSnapshot.key
                         val firstUser = firstUserSnapshot.getValue(User::class.java)
 
                         val modifiedUser = User(
-                            firstName = et_first_name_modified.text.toString(),
-                            lastName = et_last_name_modified.text.toString(),
-                            email = et_e_mail_modified.text.toString(),
-                            address = et_address_modified.text.toString(),
-                            zipcode = et_zip_code_modified.text.toString(),
-                            city = et_city_modified.text.toString(),
+                            firstName = etFirstNameModified.text.toString(),
+                            lastName = etLastNameModified.text.toString(),
+                            email = etMailModified.text.toString(),
+                            address = etAddressModified.text.toString(),
+                            zipcode = etZipCodeModified.text.toString(),
+                            city = etCityModified.text.toString(),
                             cardRef = firstUser!!.cardRef
                         )
 
-
-                        // Get a reference to the location of the User object in the Firebase Realtime Database
-                        val database = FirebaseDatabase.getInstance().reference
-                        val userRef = database.child("Users").child(firstUserKey!!)                        // Call the setValue() method on the reference with the updated User object to update the values in the Firebase Realtime Database
+                        val userRef =
+                            setUserData("Users").child(firstUserKey!!)                        // Call the setValue() method on the reference with the updated User object to update the values in the Firebase Realtime Database
                         userRef.setValue(modifiedUser).addOnCompleteListener { task ->
                             if (task.isSuccessful) {
-                                Toast.makeText(applicationContext, "User data updated successfully", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    applicationContext,
+                                    "User data updated successfully",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             } else {
-                                Toast.makeText(applicationContext, "Failed to update user data", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    applicationContext,
+                                    "Failed to update user data",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
                         }
 
@@ -126,6 +127,9 @@ class ProfileActivity : BaseActivity() {
         }
     }
 
+    // ┌─────────────────────────────────────────────────────┐
+    // │          CUSTOM : USER to Json Object               │
+    // └─────────────────────────────────────────────────────┘
     fun userToJson(user: User): JSONObject {
         val jsonObject = JSONObject()
 

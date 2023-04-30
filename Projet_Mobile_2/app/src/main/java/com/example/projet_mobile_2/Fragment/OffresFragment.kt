@@ -1,19 +1,17 @@
-package com.example.projet_mobile_2
+package com.example.projet_mobile_2.Fragment
 
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import okhttp3.CacheControl
-import okhttp3.Call
-import okhttp3.Callback
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.Response
+import com.example.projet_mobile_2.Adapter.OffresAdapter
+import com.example.projet_mobile_2.Data.Offres
+import com.example.projet_mobile_2.R
+import okhttp3.*
 import org.json.JSONObject
 import java.io.IOException
 
@@ -43,19 +41,17 @@ class OffresFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val offres= arrayListOf<Offres>()
-        val recyclerviewOffers:RecyclerView=view.findViewById<RecyclerView>(R.id.recyclerviewOffers)
-        recyclerviewOffers.layoutManager= LinearLayoutManager(requireContext())
-        val offresAdapter=OffresAdapter(offres)
-        recyclerviewOffers.adapter=offresAdapter
+        val offres = arrayListOf<Offres>()
+        val recyclerviewOffers: RecyclerView =
+            view.findViewById<RecyclerView>(R.id.recyclerviewOffers)
+        recyclerviewOffers.layoutManager = LinearLayoutManager(requireContext())
+        val offresAdapter = OffresAdapter(offres)
+        recyclerviewOffers.adapter = offresAdapter
 
+        val offresData = getString(R.string.offres_data)
+        val request = createOffresDataRequest(requireContext(), offresData)
         val okHttpClient: OkHttpClient = OkHttpClient.Builder().build()
-        val mRequestURL=getString(R.string.offres_data)
-        val request = Request.Builder()
-            .url(mRequestURL)
-            .get()
-            .cacheControl(CacheControl.FORCE_NETWORK)
-            .build()
+
         okHttpClient.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 // handle failure
@@ -88,4 +84,14 @@ class OffresFragment : Fragment() {
         // factory method and constants
     }
 
+    // ┌─────────────────────────────────────────────────────┐
+    // │          CUSTOM : DATA REQUEST (API)                │
+    // └─────────────────────────────────────────────────────┘
+    fun createOffresDataRequest(context: Context, offresData: String): Request {
+        return Request.Builder()
+            .url(offresData)
+            .get()
+            .cacheControl(CacheControl.FORCE_NETWORK)
+            .build()
+    }
 }

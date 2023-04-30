@@ -4,9 +4,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/layout_header_with_title"
+    <include
+        layout="@layout/layout_header_with_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -15,15 +16,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_margin="15dp"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="100dp"
@@ -32,17 +33,19 @@
                     android:layout_weight="3"
                     android:text="Nom"
                     android:textSize="18dp" />
+
                 <EditText
                     android:id="@+id/et_first_name_modified"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:hint="Insérez votre nom" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="100dp"
@@ -57,11 +60,12 @@
                     android:layout_height="wrap_content"
                     android:hint="Insérez votre prénom" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="100dp"
@@ -76,11 +80,12 @@
                     android:layout_height="wrap_content"
                     android:hint="Insérez votre e-mail" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="100dp"
@@ -95,11 +100,12 @@
                     android:layout_height="wrap_content"
                     android:hint="Insérez votre adresse" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="100dp"
@@ -114,11 +120,12 @@
                     android:layout_height="wrap_content"
                     android:hint="Insérez votre code postal" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="100dp"
@@ -139,8 +146,8 @@
                 android:id="@+id/btn_profile_modify"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_compte_modify"
-                android:gravity="center"></Button>
+                android:gravity="center"
+                android:text="@string/btn_compte_modify"></Button>
         </LinearLayout>
     </ScrollView>
 

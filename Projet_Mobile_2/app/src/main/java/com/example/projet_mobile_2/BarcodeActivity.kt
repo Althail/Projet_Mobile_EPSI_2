@@ -4,11 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.projet_mobile_2.Fragment.CarteFragment
+import com.example.projet_mobile_2.Fragment.MagasinsFragment
+import com.example.projet_mobile_2.Fragment.OffresFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationBarView
 
 
 class BarcodeActivity : AppCompatActivity() {
@@ -19,29 +20,38 @@ class BarcodeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_barcode)
         showProfile()
+
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
         // Écouter les changements d'onglet
         bottomNavigationView.setOnItemSelectedListener { menuItem ->
             var selectedFragment: Fragment? = null
             when (menuItem.itemId) {
-                R.id.action_accueil -> {
+                // ┌──────────────────────────────────────────┐
+                // │          Fragment Carte                  │
+                // └──────────────────────────────────────────┘
+                R.id.action_carte -> {
                     val carteFragment = CarteFragment()
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container, carteFragment)
                         .commit()
-
-
-
                     true
                 }
-                R.id.action_recherche -> {
+
+                // ┌──────────────────────────────────────────┐
+                // │          Fragment Offre                  │
+                // └──────────────────────────────────────────┘
+                R.id.action_offre -> {
                     val offresFragment = OffresFragment()
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container, offresFragment)
                         .commit()
                     true
                 }
-                R.id.action_profil -> {
+
+                // ┌────────────────────────────────────────────┐
+                // │          Fragment Magasin                  │
+                // └────────────────────────────────────────────┘
+                R.id.action_magasin -> {
                     val magasinsFragment = MagasinsFragment()
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container, magasinsFragment)
@@ -52,15 +62,18 @@ class BarcodeActivity : AppCompatActivity() {
             }
         }
 
-
-        // Afficher le fragment d'accueil par défaut
+        // ┌───────────────────────────────────────────────────────┐
+        // │          By Default : Fragment Carte                  │
+        // └───────────────────────────────────────────────────────┘
         val defaultFragment = CarteFragment()
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, defaultFragment)
             .commit()
     }
 
-
+    // ┌─────────────────────────────────────────────────────────┐
+    // │          CUSTOM : Show Profile Activity                 │
+    // └─────────────────────────────────────────────────────────┘
     fun showProfile() {
         val imageViewProfile: ImageView = findViewById<ImageView>(R.id.btn_account)
         imageViewProfile.setOnClickListener(View.OnClickListener {

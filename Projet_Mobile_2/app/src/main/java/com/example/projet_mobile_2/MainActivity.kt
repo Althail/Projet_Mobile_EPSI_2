@@ -1,14 +1,10 @@
 package com.example.projet_mobile_2
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,19 +15,19 @@ class MainActivity : AppCompatActivity() {
         // ┌──────────────────────────────────────────┐
         // │          Button - Inscription            │
         // └──────────────────────────────────────────┘
-        var btn_inscription: Button = findViewById<Button>(R.id.btn_inscription)
-        btn_inscription.setOnClickListener(View.OnClickListener (){
-            var intent_inscription = Intent(application, InscriptionActivity::class.java);
-            startActivity(intent_inscription)
+        var btnInscription: Button = findViewById<Button>(R.id.btn_inscription)
+        btnInscription.setOnClickListener(View.OnClickListener() {
+            var intentInscription = Intent(application, InscriptionActivity::class.java);
+            startActivity(intentInscription)
         })
 
         // ┌──────────────────────────────────────────┐
         // │          Button - QR Code                │
         // └──────────────────────────────────────────┘
-        var btn_qr_code: Button = findViewById<Button>(R.id.btn_qr_code)
-        btn_qr_code.setOnClickListener(View.OnClickListener() {
-            var intent_qc_code = Intent(application, QrScanActivity::class.java)
-            startActivity(intent_qc_code)
+        var btnQrCode: Button = findViewById<Button>(R.id.btn_qr_code)
+        btnQrCode.setOnClickListener(View.OnClickListener() {
+            var intentQrCode = Intent(application, QrScanActivity::class.java)
+            startActivity(intentQrCode)
         })
 
     }

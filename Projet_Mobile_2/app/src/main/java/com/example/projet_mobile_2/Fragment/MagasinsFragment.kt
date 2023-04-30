@@ -1,15 +1,16 @@
-package com.example.projet_mobile_2
+package com.example.projet_mobile_2.Fragment
 
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.os.AsyncTask
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import com.example.projet_mobile_2.MagasinDetailActivity
+import com.example.projet_mobile_2.R
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -68,23 +69,26 @@ class MagasinsFragment : Fragment() {
          */
 
         var items: JSONArray? = null
-        CoroutineScope(Dispatchers.IO).launch{
+        CoroutineScope(Dispatchers.IO).launch {
             val url = getString(R.string.magasin_data)
-            val response = URL(url).readText()
-            val jsonObject = JSONObject(response)
-            items = jsonObject.getJSONArray("stores")
-
+            val deferred = async { fetchItems(url, "stores") }
+            items = deferred.await()
         }
         runBlocking {
             delay(1000)
         }
 
-        for (i in 0..items!!.length() - 1) {
+        for (i in 0 until items!!.length()) {
             val jsonCity = items!!.getJSONObject(i)
             val city = MarkerOptions()
-            val cityLatLng = LatLng(jsonCity.optDouble("latitude", 0.0), jsonCity.optDouble("longitude", 0.0))
+            val cityLatLng =
+                LatLng(jsonCity.optDouble("latitude", 0.0), jsonCity.optDouble("longitude", 0.0))
             city.title(jsonCity.optString("name"))
-            city.snippet(jsonCity.optString("address") + " - " +jsonCity.optString("zipcode") + " " +jsonCity.optString("city") )
+            city.snippet(
+                jsonCity.optString("address") + " - " + jsonCity.optString("zipcode") + " " + jsonCity.optString(
+                    "city"
+                )
+            )
             city.position(cityLatLng)
             googleMap.addMarker(city)
         }
@@ -96,33 +100,32 @@ class MagasinsFragment : Fragment() {
 
         }
 
-
         googleMap.setOnInfoWindowClickListener {
             //(activity as BaseActivity).showToast(it.title.toString())
             val title = it.title.toString()
-            var address=""
-            var code_postal=""
-            var description=""
-            var city=""
-            var store_img_url = ""
+            var address = ""
+            var codePostal = ""
+            var description = ""
+            var city = ""
+            var storeImgUrl = ""
 
-            for (i in 0..items!!.length() - 1) {
+            for (i in 0 until items!!.length()) {
                 val jsonCity = items!!.getJSONObject(i)
-                if(jsonCity.getString("name") == it.title.toString()){
-                    store_img_url = jsonCity.getString("pictureStore")
-                    address=jsonCity.getString("address")
-                    code_postal=jsonCity.getString("zipcode")
-                    city=jsonCity.getString("city")
-                    description=jsonCity.getString("description")
+                if (jsonCity.getString("name") == it.title.toString()) {
+                    storeImgUrl = jsonCity.getString("pictureStore")
+                    address = jsonCity.getString("address")
+                    codePostal = jsonCity.getString("zipcode")
+                    city = jsonCity.getString("city")
+                    description = jsonCity.getString("description")
                     break
                 }
             }
 
             val intent = Intent(activity, MagasinDetailActivity::class.java)
             intent.putExtra("title", title)
-            intent.putExtra("store_img_url", store_img_url)
+            intent.putExtra("store_img_url", storeImgUrl)
             intent.putExtra("address", address)
-            intent.putExtra("code_postal", code_postal)
+            intent.putExtra("code_postal", codePostal)
             intent.putExtra("city", city)
             intent.putExtra("description", description)
 
@@ -157,6 +160,7 @@ class MagasinsFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_magasins, container, false)
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
@@ -181,5 +185,14 @@ class MagasinsFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    // ┌────────────────────────────────────────────────────────────┐
+    // │          CUSTOM : FETCH ITEM (JSON FROM API)               │
+    // └────────────────────────────────────────────────────────────┘
+    private suspend fun fetchItems(url: String, key: String): JSONArray {
+        val response = URL(url).readText()
+        val jsonObject = JSONObject(response)
+        return jsonObject.getJSONArray(key)
     }
 }

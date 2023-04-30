@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MagasinDetailActivity">
 
-    <include layout="@layout/layout_header_with_title"
+    <include
+        layout="@layout/layout_header_with_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,39 +20,36 @@
             android:id="@+id/image_magasin"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginBottom="20dp" />
 
         <TextView
             android:id="@+id/text_magasin_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="text_magasin_address"
-            android:textSize="30dp"
-            android:textColor="@color/design_default_color_primary_dark"
-            android:layout_marginBottom="20dp"
             android:layout_marginLeft="10dp"
-            />
+            android:layout_marginBottom="20dp"
+            android:text="text_magasin_address"
+            android:textColor="@color/design_default_color_primary_dark"
+            android:textSize="30dp" />
 
         <TextView
             android:id="@+id/text_magasin_code_postal_city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="text_magasin_code_postal_city"
-            android:textSize="30dp"
-            android:textColor="@color/design_default_color_primary_dark"
-            android:layout_marginBottom="20dp"
             android:layout_marginLeft="10dp"
-            />
+            android:layout_marginBottom="20dp"
+            android:text="text_magasin_code_postal_city"
+            android:textColor="@color/design_default_color_primary_dark"
+            android:textSize="30dp" />
 
         <TextView
             android:id="@+id/text_magasin_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="text_magasin_description"
-            android:textSize="30dp"
-            android:textColor="@color/design_default_color_primary_dark"
             android:layout_marginLeft="10dp"
-            />
+            android:text="text_magasin_description"
+            android:textColor="@color/design_default_color_primary_dark"
+            android:textSize="30dp" />
 
     </LinearLayout>
 
