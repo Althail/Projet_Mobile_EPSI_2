@@ -6,6 +6,9 @@ import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.projet_mobile_2.Fragment.CarteFragment
+import com.example.projet_mobile_2.Fragment.MagasinsFragment
+import com.example.projet_mobile_2.Fragment.OffresFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 

@@ -1,4 +1,4 @@
-package com.example.projet_mobile_2
+package com.example.projet_mobile_2.Fragment
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import com.example.projet_mobile_2.MagasinDetailActivity
+import com.example.projet_mobile_2.R
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback

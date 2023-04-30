@@ -1,4 +1,4 @@
-package com.example.projet_mobile_2
+package com.example.projet_mobile_2.Fragment
 
 import android.content.Context
 import android.os.Bundle
@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projet_mobile_2.Data.Offres
+import com.example.projet_mobile_2.OffresAdapter
+import com.example.projet_mobile_2.R
 import okhttp3.*
 import org.json.JSONObject
 import java.io.IOException
