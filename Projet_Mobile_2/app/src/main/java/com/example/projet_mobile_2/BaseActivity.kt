@@ -60,11 +60,17 @@ open class BaseActivity : AppCompatActivity() {
         )
     }
 
+    // ┌─────────────────────────────────────────────────────────┐
+    // │          CUSTOM : Show Header Title                     │
+    // └─────────────────────────────────────────────────────────┘
     fun setHeaderTitle(title: String?) {
         val textViewHeaderTitle: TextView = findViewById<TextView>(R.id.textViewHeaderTitle)
         textViewHeaderTitle.text = title
     }
 
+    // ┌──────────────────────────────────────────────────────────────┐
+    // │          CUSTOM : Show Back Button in Header                 │
+    // └──────────────────────────────────────────────────────────────┘
     fun showBack() {
         val imageViewBackButton: ImageView = findViewById<ImageView>(R.id.imageViewBackButton)
         imageViewBackButton.visibility = View.VISIBLE
@@ -73,10 +79,12 @@ open class BaseActivity : AppCompatActivity() {
         })
     }
 
+    // ┌──────────────────────────────────────────────────────────────────┐
+    // │          CUSTOM : Set User Database (Connection)                 │
+    // └──────────────────────────────────────────────────────────────────┘
     fun setUserData(pathString: String): DatabaseReference {
         val database = FirebaseDatabase.getInstance(getString(R.string.db_url)).reference
 
         return database.child(pathString)
     }
-
 }
