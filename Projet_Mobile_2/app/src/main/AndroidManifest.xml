@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-<!-- ┌────────────────────────────────────────────┐
-     │          CAMERA PERMISSION                 │
-     └────────────────────────────────────────────┘ -->
+    <!-- ┌────────────────────────────────────────────┐
+         │          CAMERA PERMISSION                 │
+         └────────────────────────────────────────────┘ -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-feature
         android:name="android.hardware.camera"

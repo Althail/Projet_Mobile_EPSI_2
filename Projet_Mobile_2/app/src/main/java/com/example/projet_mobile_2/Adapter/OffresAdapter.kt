@@ -18,7 +18,8 @@ class OffresAdapter(val offres: ArrayList<Offres>) :
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textViewName: TextView = view.findViewById<TextView>(R.id.textViewName)
         val pictureViewOffres: ImageView = view.findViewById<ImageView>(R.id.pictureViewOffres)
-        val descriptionViewOffres: TextView = view.findViewById<TextView>(R.id.descriptionViewOffres)
+        val descriptionViewOffres: TextView =
+            view.findViewById<TextView>(R.id.descriptionViewOffres)
         val layoutContent: LinearLayout = view.findViewById<LinearLayout>(R.id.layoutContent)
     }
 

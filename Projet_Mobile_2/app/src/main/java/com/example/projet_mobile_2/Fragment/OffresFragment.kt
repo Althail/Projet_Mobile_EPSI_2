@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.projet_mobile_2.Data.Offres
 import com.example.projet_mobile_2.Adapter.OffresAdapter
+import com.example.projet_mobile_2.Data.Offres
 import com.example.projet_mobile_2.R
 import okhttp3.*
 import org.json.JSONObject
@@ -83,6 +83,7 @@ class OffresFragment : Fragment() {
     companion object {
         // factory method and constants
     }
+
     // ┌─────────────────────────────────────────────────────┐
     // │          CUSTOM : DATA REQUEST (API)                │
     // └─────────────────────────────────────────────────────┘
