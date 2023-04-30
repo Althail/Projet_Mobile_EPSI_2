@@ -1,17 +1,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/action_accueil"
+        android:id="@+id/action_carte"
         android:icon="@drawable/ic_barcode_24"
         android:title="Carte" />
 
     <item
-        android:id="@+id/action_recherche"
+        android:id="@+id/action_offre"
         android:icon="@drawable/ic_receipt_long_24"
         android:title="Offres" />
 
     <item
-        android:id="@+id/action_profil"
+        android:id="@+id/action_magasin"
         android:icon="@drawable/ic_travel_explore_24"
         android:title="Magasins" />
 
