@@ -10,19 +10,19 @@ class MagasinDetailActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_magasindetail)
 
-        val intent = getIntent()
+        val intent = intent
         var title: String? = null
-        var store_img_url: String? = null
+        var storeImgUrl: String? = null
         var address: String? = null
-        var code_postal: String? = null
+        var codePostal: String? = null
         var city: String? = null
         var description: String? = null
 
         if (intent != null) {
             title = intent.getStringExtra("title")
-            store_img_url = intent.getStringExtra("store_img_url")
+            storeImgUrl = intent.getStringExtra("store_img_url")
             address = intent.getStringExtra("address")
-            code_postal = intent.getStringExtra("code_postal")
+            codePostal = intent.getStringExtra("code_postal")
             city = intent.getStringExtra("city")
             description = intent.getStringExtra("description")
 
@@ -38,9 +38,9 @@ class MagasinDetailActivity : BaseActivity() {
         val imageViewMagasin: ImageView = findViewById<ImageView>(R.id.image_magasin)
 
         textViewAddress.text = address.toString()
-        textViewCodePostalCity.text = code_postal.toString() + " " + city.toString()
+        textViewCodePostalCity.text = codePostal.toString() + " " + city.toString()
         textViewDescription.text = description.toString()
-        Picasso.get().load(store_img_url.toString()).into(imageViewMagasin)
+        Picasso.get().load(storeImgUrl.toString()).into(imageViewMagasin)
 
     }
 }
